@@ -18,6 +18,20 @@ class UserFixtures extends Fixture
         
             $manager->persist($user);
 
+        $user->setEmail('demo@admin.demo')
+        ->setUsername('demo')
+        ->setPassword('$2y$10$OoD85sYnuAZonPGanCQCHO11yJhH8CMveybVCPoDT1Nq37.APc2Ym')
+        ->setRoles(['ROLE_ADMIN']);
+    
+        $manager->persist($user);
+
+        $user->setEmail('demo@user.demo')
+            ->setUsername('demo')
+            ->setPassword('$2y$10$OoD85sYnuAZonPGanCQCHO11yJhH8CMveybVCPoDT1Nq37.APc2Ym')
+            ->setRoles(['ROLE_USER']);
+        
+            $manager->persist($user);
+
         $manager->flush();
     }
 }

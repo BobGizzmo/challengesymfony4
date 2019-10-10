@@ -21,7 +21,7 @@ class HouseFixtures extends Fixture
             for($h=0;$h<10;$h++) {
                 $house = new House();
                 $house->setNomination('Très belle<br> maison de ville')
-                    ->setImage('https://get.pxhere.com/photo/tree-meadow-play-home-line-colorful-font-illustration-ecosystem-cartoon-screenshot-children-drawing-767745.jpg')
+                    ->setImage('/assets/images/maison.jpg')
                     ->setPrice($faker->randomFloat(2, 100000, 1000000))
                     ->setDescription($faker->paragraphs(3, true))
                     ->setCity($city);
