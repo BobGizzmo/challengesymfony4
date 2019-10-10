@@ -18,6 +18,7 @@ class UserFixtures extends Fixture
         
             $manager->persist($user);
 
+        $user = new User();
         $user->setEmail('demo@admin.demo')
         ->setUsername('demo')
         ->setPassword('$2y$10$OoD85sYnuAZonPGanCQCHO11yJhH8CMveybVCPoDT1Nq37.APc2Ym')
@@ -25,6 +26,8 @@ class UserFixtures extends Fixture
     
         $manager->persist($user);
 
+        
+        $user = new User();
         $user->setEmail('demo@user.demo')
             ->setUsername('demo')
             ->setPassword('$2y$10$OoD85sYnuAZonPGanCQCHO11yJhH8CMveybVCPoDT1Nq37.APc2Ym')
