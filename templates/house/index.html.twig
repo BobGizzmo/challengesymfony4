@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IMART Immo - nos maison{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+ 
+{% block body %}
+    <section class="container mt-3 mb-5">
+        <h1 class="text-center mb-5">NOS MAISON</h1>
+
+        <h2 class="h1 text-center">A vendre ou a louer !</h2>
+            <article class="sellPart text-center mt-3 row">
+            {% for house in houses %}
+                <div class="col-12 col-sm-3 mt-5 text-center">
+                    <h3>{{ house.nomination | raw }}</h3>
+                    <div>
+                        <img src="{{ house.image }}" alt="{{ house.nomination | raw }}" class="w-100">
+                    </div>
+                    <a href="{{ path('house_show', {'id': house.id })}}">En savoir plus</a>
+                </div>
+            {% else %}
+                <h2 class="h1 col-12 col-sm-10 offset-sm-1 mt-5 mb-5">OUPS !<br /> Il n y a pas de maison ici !</h2>
+            {% endfor %}
+            </article>
+    </section>
+    <section class="pagination container mb-5 d-flex justify-content-center">
+        <div>
+        {% for i in 0..nbPage %}
+            <a class="col-2 col-sm-1" href="{{ path('house_home', {'page': i})}}">{{i}}</a>
+        {% endfor %}
+        </div>
+    </section>
+{% endblock %}

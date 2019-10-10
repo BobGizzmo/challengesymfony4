@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}IMART Immo - Contactez Nous !{% endblock %}
+
+{% block body %}
+<section class="container teamSection">
+    <h2 class="h1 text-center mt-5 mb-5">Contactez nous !</h1>
+    {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    {{ form(form)}}
+</section>
+{% endblock %}

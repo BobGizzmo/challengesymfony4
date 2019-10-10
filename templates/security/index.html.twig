@@ -1,0 +1,23 @@
+{% extends 'defaultLogin.html.twig' %}
+
+{% block title %}IMART Immo - connexion{% endblock %}
+ {% block stylesheets %}
+    <style>
+        form {
+            border: 1px solid #C0C0C0;
+            border-radius: 10px;
+        }
+    </style>
+ {% endblock %}
+{% block body %}
+<section class="container d-flex align-items-center justify-content-center" style="height: 80vh;">
+    <form action="{{ path('security_login') }}" method="POST" class="d-flex flex-column p-5 w-50 bg-white">
+        <h1 class="text-center">CONNEXION</h1>
+        <input class="mb-2 mt-2 form-control" type="text" placeholder="Adresse email" name="_username"  required />
+        <input class="mb-2 mt-2 form-control" type="password" placeholder="Mot de passe" name="_password" required />
+        <button type="submit" class="btn btn-primary mt-2">Connexion !</button>
+        <small class="text-center">accès Admin:<br /> demo@admin.demo <br />adminDemo</small><br />
+        <small class="text-center">accès User:<br /> demo@user.demo <br />userDemo</small>
+    </form>
+</section>   
+{% endblock %}

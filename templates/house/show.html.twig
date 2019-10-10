@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IMART Immo - nos maison - {{ house.nomination}} {% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+ 
+{% block body %}
+    <section class="container mt-3 mb-5">
+        <h1 class="text-center mb-5">NOS MAISON</h1>
+
+        <h2 class="h1 text-center">{{ house.nomination| raw }}</h2>
+            <article class="sellPart text-center mt-3 row">
+                <div class="col-12 col-sm-10 offset-sm-1 mt-5 text-center">
+                    <div>
+                        <img src="{{ house.image }}" alt="{{ house.nomination | raw }}" class="w-100">
+                    </div>
+                    <div class="descriptionPart mt-3">
+                        <p class="text-left">{{ house.description }}</p>
+                    </div>
+                    <p class="text-right">{{ house.price }}€</a>
+                </div>
+            </article>
+    </section>
+{% endblock %}

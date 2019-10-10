@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IMART Immo - La recette{% endblock %}
+
+{% block body %}
+<section class="container recetteSection">
+    <h1 class="text-center mt-5 mb-5">LA RECETTE</h1>
+    <h2><big>1.</big> Les ingrédients</h2>
+    <p class="mt-3">Pour réaliser ce site web, il vous faut:</p>
+    <ul>
+        <li>5 Controllers</li>
+        <li>3 Entitys et Repositorys</li>
+        <li>3 Forms</li>
+        <li>3 Templates de base</li>
+        <li>11 Pages</li>
+        <li>Un peu de motivation</li>
+    </ul>
+    <h2><big>2.</big> La technique</h2>
+    <p class="mt-3">Le fin du fin, c'est plantafin; Se poser les bonnes questions en ammont:</p>
+    <p>Dans notre cas ce fut:</p>
+    <ul>
+        <li>1.Quelle type de site voulons nous faire ? <strong>Un site vitrine de présentation de maison que nous voulons vendre en fonction des villes où elles sont</strong></li>
+        <li>2.Qu'est ce que l'on veut présenter ? <strong>Et bien des maisons</strong></li>
+        <li>3.Combien de page voulons nous ? <strong>La base quoi, page d'accueil, de présentation de nos maison, de notre équipe, une page contact, et enfin des mentions légales</strong></li>
+        <li>4.Voulons que nos visiteurs puissent se créer un compte ? <strong>Non, pour faire quoi ?!</strong></li>
+        <li>5.Voulons nous parcontre de quoi gérer le site ? <strong>Oui, nous voulons pourvoir ajouter, modifier supprimer les maisons, et aussi les utilisateurs</strong></li>
+        <li>6.Voulons nous pouvoir générer et analyser les données de fréquence de visite du site ? <strong>Non, pas de google analytic, on en a que faire pour un challenge et puis comme ça on a pas besoin de préciser que l'on a des cookies puisque que les seuls que nous avons sur le site ne nous servent qu'à le faire fonctionner</strong></li>
+    </ul>
+    <h2><big>3.</big> La Préparation</h2>
+    <p class="mt-3">Le pressage des réponses</p>
+    <ul>
+        <li><strong>Pressage de la réponse 1:</strong> <br />On obtient du jus d'entity Maison et son petit lait de paramètre 'nomination', 'image', 'description', 'price', 'city' Mais aussi du jus d'entity City et son petit lait de paramètre 'name'</li>
+        <li><strong>Pressage de la réponse 2:</strong> <br />On obtient rien de mieux qu'à la réponse 1</li>
+        <li><strong>Pressage de la réponse 3:</strong> <br />On obtient un velouté de Controller Site accompagné de ses petits morceaux de methode 'home', 'house', 'team', 'contact', 'mlegales' et de son assiete de pages associées</li>
+        <li><strong>Pressage de la réponse 4:</strong> <br />On obtient rien du tout</li>
+        <li><strong>Pressage de la réponse 5:</strong> <br />On obtient du jus d'entity User avec son petit lait de paramètre 'email', 'username', 'password', 'roles' ainsi qu'un dégueuli de Fixtures pour créer l'utilisateur administrateur.<br />Puis de nouveau un velouté de Controller Security, ses ptits morceaux de methodes 'security_login', 'security_logout' et ses pages.<br />
+        Se suit ensuite un velouté de Controller House accompagné de ses petits morceaux de methode 'house_home', 'house_show', 'admin_house', 'admin_house_edit', 'admin_house_delete' et de son assiete de pages et suivi aussitôt du velouté de Controller User avec ses ptit morceaux de methode 'admin_user', 'user_edit', 'user_delete' et ses pages.<br />Un velouté de Controller Admin, ses ptits morceaux de methodes 'admin_home' coule ensuite.. <br /> Enfin sur les dernière pression nous obtenons des gelés de HouseType et de UserType</li>
+        <li><strong>Pressage de la réponse 6:</strong> <br />On obtient rien du tout</li>
+    </ul>
+    <p class="mt-3">La mise en forme des ingrédients</p>
+    <ul>
+        <li>1.Génération des entity</li>
+        <li>2.Génération des controller</li>
+        <li>3.Génération de Forms</li>
+        <li>4.Création des methodes et leurs url</li>
+        <li>5.That's time to code !</li>
+    </ul>
+    <h2><big>4.</big> Les erreurs</h2>
+    <p class="mt-3">En cas d'erreur, suivez cette liste pour vous aider à la résoudre</p>
+    <ul>
+        <li>Verifier les points virgules</li>
+        <li>Verifier les parenthèses</li>
+        <li>Verifier les guillemets ou les cotes</li>
+        <li>Verifier l'url de la methode incriminé</li>
+        <li>Verifier l'orthographe de ses variables, methodes et pages</li>
+        <li>Verifier l'importation et le namespace des différentes classes utilisées</li>
+        <li>Verifier que la variable que j'essai de renvoyer à la vue existe bien dans la methode</li>
+        <li>Ai-je bien linké ma bdd sql ou sqlite dans mon .env</li>
+    </ul>
+</section>
+{% endblock %}

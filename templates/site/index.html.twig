@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}IMART Immo{% endblock %}
+
+{% block stylesheets %}
+    <style>
+        .statPart div p big {
+            font-size: 3rem;
+        }
+    </style>
+{% endblock %}
+ 
+{% block body %}
+    <section class="container mt-5 mb-5">
+        <article>
+            <h2 class="h1 text-center mb-5">Nos statistiques</h2>
+            <div class="statPart text-center mt-3 row">
+                <div class="col-12 col-sm-4">
+                    <h3>Nombre de maison vendu</h3>
+                    <p class="text-center"><big class="">3250</big></p>
+                </div>    
+                <div class="col-12 col-sm-4">
+                    <h3>Nombre de maison louée</h3>
+                    <p class="text-center"><big class="">4722</big></p>
+                </div>  
+                <div class="col-12 col-sm-4">
+                    <h3>Nombre de client satisfait</h3>
+                    <p class="text-center"><big class="">1</big></p>
+                </div>       
+            </div>
+        </article>
+        <hr>
+        <article class="lastHouse mt-5">
+            <h2 class="h1 text-center">Nos dernières ventes</h2>
+            <div class="sellPart text-center mt-3 row">
+            {% for house in houses %}
+                <div class="col-12 col-sm-3 mt-5">
+                    <h3>{{ house.nomination | raw }}</h3>
+                    <div>
+                        <a href="{{ path('house_show', {'id': house.id })}}">
+                            <img src="{{ house.image }}" alt="{{ house.nomination | raw }}" class="w-100">
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </article>
+    </section>
+    <div class="mt-5 mb-3" style="height: 5vw"></div>
+{% endblock %}

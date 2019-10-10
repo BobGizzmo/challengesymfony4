@@ -1,0 +1,92 @@
+{% extends 'defaultAdmin.html.twig' %}
+
+{% block title %}IMART Immo - Aministration{% endblock %}
+
+{% block body %}
+<style>
+    .housePart {
+        overflow-y: scroll;
+        height: 65vh;
+    }
+    .tableCity, .tableUser {
+        height: 32.5vh;
+        overflow-y: scroll;
+    }
+    td, img {
+        cursor: pointer;
+    }
+</style>
+
+<section class="dashbord mt-5 mb-5">
+    <div class="row no-gutters">
+        <article class="col-12 col-sm-6">
+            <h3 class="text-center col-12">Les maisons</h3>
+            <div class="housePart row ml-2">
+            {% for house in houses %}
+                <div class="mb-5 mt-3 col-12 col-sm-4 col-md-3">
+                    <p class="h5 text-center">{{ house.nomination| raw }}</p>
+                    <div>
+                        <a href="{{ path('admin_edit_house', {'id': house.id}) }}"><img class="w-100" src="{{ house.image }}" alt="{{ house.nomination| raw}}"></a>
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </article>
+        <article class="col-12 col-sm-4 offset-sm-1">
+            <h3 class="text-center">Utilisateurs</h3>
+            <div class="tableUser">
+                <table class="table table-hover mt-3 mb-5">
+                    <thead>
+                        <tr>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    {% for user in users %}
+                        <tbody>
+                            <tr>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.username }}</td>
+                                <td>{{ user.roles[0] }}</td>
+                            </tr>
+                        </tbody>
+                    {% endfor %}
+                    <tfoot>
+                        <tr>
+                            <th>Email</th>
+                            <th>Username</th>
+                            <th>Role</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <h3 class="text-center">Mes emplacements</h3>
+            <div class="tableCity">
+                <table class="table table-hover mt-3 mb-5">
+                    <thead>
+                        <tr>
+                            <th>Ville</th>
+                            <th class="text-center">Nombre de biens</th>
+                        </tr>
+                    </thead>
+                    {% for city in citys %}
+                        <tbody>
+                            <tr>
+                                <td>{{ city.name }}</td>
+                                <td class="text-center">{{ city.houses| length }}</td>
+                            </tr>
+                        </tbody>
+                    {% endfor %}
+                    <tfoot>
+                        <tr>
+                            <th>Ville</th>
+                            <th>Nombre de biens</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </article>
+        </article>
+    </div>
+</section>
+{% endblock %}
