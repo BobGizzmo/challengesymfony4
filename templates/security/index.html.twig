@@ -10,8 +10,8 @@
     </style>
  {% endblock %}
 {% block body %}
-<section class="container d-flex align-items-center justify-content-center" style="height: 80vh;">
-    <form action="{{ path('security_login') }}" method="POST" class="d-flex flex-column p-5 w-50 bg-white">
+<section class="container d-flex align-items-center justify-content-center row" style="height: 80vh;">
+    <form action="{{ path('security_login') }}" method="POST" class="d-flex flex-column p-sm-5 p-3 col-10 offset-1 col-sm-6 offset-sm-3 bg-white">
         <h1 class="text-center">CONNEXION</h1>
         <input class="mb-2 mt-2 form-control" type="text" placeholder="Adresse email" name="_username"  required />
         <input class="mb-2 mt-2 form-control" type="password" placeholder="Mot de passe" name="_password" required />
