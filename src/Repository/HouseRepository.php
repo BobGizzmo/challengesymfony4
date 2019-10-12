@@ -19,17 +19,23 @@ class HouseRepository extends ServiceEntityRepository
         parent::__construct($registry, House::class);
     }
 
+    // /**
+    //  * @return House[] Returns an array of House objects
+    //  */
     public function findLast($maxResult) {
-        return $this->createQueryBuilder('h')
-                    ->setMaxResults($maxResult)
+        return $this->createQueryBuilder('h') //SELECT * FROM house
+                    ->setMaxResults($maxResult) //LIMIT $maxResult
                     ->getQuery()
                     ->getResult();
     }
 
+    // /**
+    //  * @return House[] Returns an array of House objects
+    //  */
     public function findByPage($page, $maxResult) {
-        return $this->createQueryBuilder('h')
-                    ->setMaxResults($maxResult)
-                    ->setFirstResult($page*$maxResult)
+        return $this->createQueryBuilder('h') //Select * FROM house 
+                    ->setMaxResults($maxResult) //LIMIT $maxResult
+                    ->setFirstResult($page*$maxResult) //OFFSET $page*$maxResult
                     ->getQuery()
                     ->getResult();
     }

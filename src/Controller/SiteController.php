@@ -15,6 +15,7 @@ class SiteController extends AbstractController
      */
     public function home(HouseRepository $houseRepos)
     {
+        //findLast: Custom method in App\Repository\HouseRepository
         $houses = $houseRepos->findLast(12);
         return $this->render('site/index.html.twig', [
             'houses' => $houses
@@ -41,6 +42,7 @@ class SiteController extends AbstractController
 
         if($form->isSubmitted() && $form->isValid()) {
             $this->addFlash('success', 'Votre mail a bien été ignoré');
+            //TO DO: Send a email ;)
         }
         return $this->render('site/contact.html.twig', [
             'form' => $form->createView()

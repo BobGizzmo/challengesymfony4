@@ -21,6 +21,7 @@ class HouseController extends AbstractController
      */
     public function index(HouseRepository $houseRepository, $page)
     {
+        //findByPage: Custom method in App\Repository\HouseRepository
         $houses = $houseRepository->findByPage($page-1, 12);
         $totalPage = round($houseRepository->count([])/12);
         return $this->render('house/index.html.twig', [
@@ -71,7 +72,7 @@ class HouseController extends AbstractController
             $manager->persist($house);
             $manager->flush();
 
-            $cache->delete('houses');
+            $cache->delete('houses');//Deleted cache after insertion or update
         }
 
         $houses = $cache->get('houses', function(ItemInterface $item) {
