@@ -21,7 +21,7 @@ class HouseController extends AbstractController
      */
     public function index(HouseRepository $houseRepository, $page)
     {
-        $houses = $houseRepository->findByPage($page, 12);
+        $houses = $houseRepository->findByPage($page-1, 12);
         $totalPage = round($houseRepository->count([])/12);
         return $this->render('house/index.html.twig', [
             'houses' => $houses,
@@ -119,6 +119,6 @@ class HouseController extends AbstractController
             }
         }
         $houseArray[] = $id;
-        return new JsonResponse($houseArray);
+        return $this->json(['code' => 200, 'house' => $houseArray], 200);
     }
 }

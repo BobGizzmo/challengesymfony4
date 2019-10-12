@@ -27,7 +27,7 @@
     <section class="pagination container mb-5 d-flex justify-content-center">
         <div>
         {% for i in 0..nbPage %}
-            <a class="col-2 col-sm-1" href="{{ path('house_home', {'page': i})}}">{{i}}</a>
+            <a class="col-2 col-sm-1" href="{{ path('house_home', {'page': i+1})}}">{{i+1}}</a>
         {% endfor %}
         </div>
     </section>
