@@ -7,6 +7,7 @@ use App\Repository\HouseRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class SiteController extends AbstractController
 {
@@ -14,9 +15,10 @@ class SiteController extends AbstractController
      * @Route("/", name="home")
      */
     public function home(HouseRepository $houseRepos)
-    {
+    {        
         //findLast: Custom method in App\Repository\HouseRepository
         $houses = $houseRepos->findLast(12);
+
         return $this->render('site/index.html.twig', [
             'houses' => $houses
         ]);

@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -19,7 +20,6 @@ class SecurityController extends AbstractController
         //Pour message fr direction config/packages/translation.yaml puis remplacer en par fr
         //https://symfony.com/doc/current/translation.html
         $error = $auth->getLastAuthenticationError();
-
         //Recupère le username de la dernière tentative de connexion
         $lastUsername = $auth->getLastUsername();
 

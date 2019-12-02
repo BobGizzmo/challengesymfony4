@@ -82,8 +82,34 @@
                             </li>
                         {% else %}
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ path('security_login') }}">Connexion</a>
+                                <a class="nav-link" onclick="showModal()">Connexion</a>
                             </li>
+                            <div class="modal" tabindex="-1" role="dialog" style="display:none">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">Connexion</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form action="{{ path('security_login') }}" method="POST" class="d-flex flex-column p-sm-5 p-3 col-10 offset-1 col-sm-6 offset-sm-3 bg-white">
+                                            {# {% if error %}
+                                                <div class="alert alert-danger text-center">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                                            {% endif %} #}
+                                            <input class="mb-2 mt-2 form-control" type="text" placeholder="Adresse email" value="{{ lastUsername }}" name="_username"  required />
+                                            <input class="mb-2 mt-2 form-control" type="password" placeholder="Mot de passe" name="_password" required />
+                                            <button type="submit" class="btn btn-primary mt-2">Connexion !</button>
+                                            <small class="text-center">accès Admin:<br /> demo@admin.demo <br />adminDemo</small><br />
+                                            <small class="text-center">accès User:<br /> demo@user.demo <br />userDemo</small>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         {% endif %}
                     </ul>
                 </div>
@@ -118,6 +144,11 @@
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+            <script>
+                function showModal() {
+                    $('.modal').css('display', 'block');
+                }
+            </script>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
